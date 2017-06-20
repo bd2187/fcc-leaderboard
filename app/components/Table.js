@@ -1,13 +1,22 @@
 "use strict";
 
 import React from 'react';
+import api from '../utils/api';
 
 class Table extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      category: 'recent'
+    }
   }
   componentDidMount() {
-    console.log('fetch data');
+    var category = this.state.category;
+    const endpoint = `https://fcctop100.herokuapp.com/api/fccusers/top/${category}`;
+    api.fetchAPI(endpoint)
+      .then(function(data){
+        console.log(data);
+      })
   }
   render() {
     return (
