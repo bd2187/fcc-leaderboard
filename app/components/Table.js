@@ -4,21 +4,41 @@ import React from 'react';
 import api from '../utils/api';
 import Loading from './Loading';
 
+function UserImage(props) {
+  var image= props.image;
+  return (
+    <img src={image} width="20px"/>
+  )
+}
+
+function CampersData(props) {
+  var {user, index} = props;
+  return (
+    <tr>
+     <td>{index + 1}</td>
+     <td>
+     <UserImage image={user.img} />
+      {user.username}
+     </td>
+     <td>{user.recent}</td>
+     <td>{user.alltime}</td>
+    </tr>
+  );
+}
+
 class Table extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       category: '',
       loading: true,
-      data: []
+      data: null
     }
-    // this.componentDidMount = this.componentDidMount.bind(this);
   }
   componentDidMount() {
     const endpoint = "https://fcctop100.herokuapp.com/api/fccusers/top/recent";
     api.fetchAPI(endpoint)
       .then( (data) => {
-        console.log(data);
         this.setState(function(){
           return {
             category: 'recent',
@@ -30,6 +50,8 @@ class Table extends React.Component {
   }
   render() {
     var loading = this.state.loading;
+    var data = this.state.data;
+    var arr = [1, 2, 3, 4, 5];
     return (
       <div>
         <table>
@@ -45,11 +67,12 @@ class Table extends React.Component {
              <td>Points in past 30 days</td>
              <td>All time points</td>
            </tr>
+           {data && data.map((user, index) =>
+             <CampersData key={user.username} user={user} index={index}/>)}
            </tbody>
         </table>
 
         {loading && <Loading />}
-        
       </div>
     )
   }
