@@ -22,8 +22,10 @@ function CampersData(props) {
      <td className="numberCol">{index + 1}</td>
      <td className="camperCol">
       <a href={`https://www.freecodecamp.com/${user.username}`} target="_blank">
-       <UserImage image={user.img} user={user.username}/>
-        {user.username}
+        <div className="userLink">
+         <UserImage image={user.img} user={user.username}/>
+        <span className="username">{user.username}</span>
+        </div>
       </a>
      </td>
      <td className="recentCol">{user.recent}</td>

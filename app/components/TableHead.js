@@ -9,13 +9,13 @@ function TableHead(props) {
      <tr>
        <td className="numberCol">#</td>
        <td className="camperCol">Camper Name</td>
-       <td className="recentCol" onClick={props.onClick.bind(null,
+       <td className="recentCol category" onClick={props.onClick.bind(null,
           'https://fcctop100.herokuapp.com/api/fccusers/top/recent')}>
-          Points in last 30 days
+          Recent
         </td>
-       <td className="alltimeCol" onClick={props.onClick.bind(null,
+       <td className="alltimeCol category" onClick={props.onClick.bind(null,
           'https://fcctop100.herokuapp.com/api/fccusers/top/alltime')}>
-          All time points
+          All time
         </td>
      </tr>
      </thead>
