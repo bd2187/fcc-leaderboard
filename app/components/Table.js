@@ -3,50 +3,8 @@
 import React from 'react';
 import api from '../utils/api';
 import Loading from './Loading';
-
-function TableHead(props) {
-  return (
-    <thead>
-     <tr>
-       <td className="numberCol">#</td>
-       <td className="camperCol">Camper Name</td>
-       <td className="recentCol" onClick={props.onClick.bind(null,
-          'https://fcctop100.herokuapp.com/api/fccusers/top/recent')}>
-          Points in last 30 days
-        </td>
-       <td className="alltimeCol" onClick={props.onClick.bind(null,
-          'https://fcctop100.herokuapp.com/api/fccusers/top/alltime')}>
-          All time points
-        </td>
-     </tr>
-     </thead>
-  )
-}
-
-function CampersData(props) {
-  var {user, index} = props;
-  return (
-    <tr>
-     <td className="numberCol">{index + 1}</td>
-     <td className="camperCol">
-      <a href={`https://www.freecodecamp.com/${user.username}`} target="_blank">
-       <UserImage image={user.img} user={user.username}/>
-        {user.username}
-      </a>
-     </td>
-     <td className="recentCol">{user.recent}</td>
-     <td className="alltimeCol">{user.alltime}</td>
-    </tr>
-  );
-}
-
-function UserImage(props) {
-  var image= props.image;
-  var user = props.user;
-  return (
-    <img className="userAvatar" src={image} alt={`Avatar for ${user}`}/>
-  )
-}
+import TableHead from './TableHead';
+import CampersData from './CampersData';
 
 class Table extends React.Component {
   constructor(props) {
