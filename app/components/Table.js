@@ -30,28 +30,26 @@ class Table extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      category: '',
+      endpoint: 'https://fcctop100.herokuapp.com/api/fccusers/top/recent',
       loading: true,
       data: null
     }
   }
   componentDidMount() {
-    const endpoint = "https://fcctop100.herokuapp.com/api/fccusers/top/recent";
+    var endpoint = this.state.endpoint;
     api.fetchAPI(endpoint)
       .then( (data) => {
         this.setState(function(){
           return {
-            category: 'recent',
             loading: false,
             data: data
           }
         })
-      })
+      });
   }
   render() {
     var loading = this.state.loading;
     var data = this.state.data;
-    var arr = [1, 2, 3, 4, 5];
     return (
       <div>
         <table>
