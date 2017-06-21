@@ -28,6 +28,33 @@ function CampersData(props) {
   );
 }
 
+function TableHead(props) {
+  return (
+    <thead>
+       <tr>
+         <th>Leaderboard</th>
+       </tr>
+     </thead>
+  )
+}
+
+function RowOne(props) {
+  return (
+    <tr>
+      <td>#</td>
+      <td>Camper Name</td>
+      <td onClick={props.onClick.bind(null,
+         'https://fcctop100.herokuapp.com/api/fccusers/top/recent')}>
+         Points in last 30 days
+       </td>
+      <td onClick={props.onClick.bind(null,
+         'https://fcctop100.herokuapp.com/api/fccusers/top/alltime')}>
+         All time points
+       </td>
+    </tr>
+  )
+}
+
 class Table extends React.Component {
   constructor(props) {
     super(props);
@@ -61,27 +88,14 @@ class Table extends React.Component {
     return (
       <div>
         <table>
-          <thead>
-             <tr>
-               <th>Leaderboard</th>
-             </tr>
-           </thead>
-           <tbody>
-           <tr>
-             <td>#</td>
-             <td>Camper Name</td>
-             <td onClick={this.updateTable.bind(null,
-                'https://fcctop100.herokuapp.com/api/fccusers/top/recent')}>
-                Points in last 30 days
-              </td>
-             <td onClick={this.updateTable.bind(null,
-                'https://fcctop100.herokuapp.com/api/fccusers/top/alltime')}>
-                All time points
-              </td>
-           </tr>
-           {data && data.map((user, index) =>
-             <CampersData key={user.username} user={user} index={index}/>)}
-           </tbody>
+          <TableHead />
+          <tbody>
+          <RowOne onClick={this.updateTable}/>
+
+          {data && data.map((user, index) =>
+            <CampersData key={user.username} user={user} index={index}/>)}
+            
+          </tbody>
         </table>
 
         {loading && <Loading />}
