@@ -1,0 +1,54 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: green;
+  width: 100%;
+}
+
+#app {
+  width: 100%;
+}
+
+.container {
+  background: blue;
+  width: 100%;
+
+  table {
+    background: red;
+    margin: 0 auto;
+    table-layout: auto;
+    width: 90%;
+    max-width: 1168px;
+    font-size: 1.4em;
+
+    .numberCol {
+      background: blue;
+      // width: 10%;
+      text-align: center;
+    }
+    .camperCol {
+      // width: 50%;
+      background: green;
+    }
+    .recentCol {
+      // width: 30%;
+      background: pink;
+      text-align: center;
+    }
+    .alltimeCol {
+      // width: 30%;
+      background: orange;
+      text-align: center;
+    }
+  }
+}
+
+.userAvatar {
+  width: 50px;
+}
+
+#loading {
+  text-align: center;
+}

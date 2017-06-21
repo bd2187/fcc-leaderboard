@@ -4,10 +4,22 @@ import React from 'react';
 import api from '../utils/api';
 import Loading from './Loading';
 
-function UserImage(props) {
-  var image= props.image;
+function TableHead(props) {
   return (
-    <img src={image} width="20px"/>
+    <thead>
+     <tr>
+       <td className="numberCol">#</td>
+       <td className="camperCol">Camper Name</td>
+       <td className="recentCol" onClick={props.onClick.bind(null,
+          'https://fcctop100.herokuapp.com/api/fccusers/top/recent')}>
+          Points in last 30 days
+        </td>
+       <td className="alltimeCol" onClick={props.onClick.bind(null,
+          'https://fcctop100.herokuapp.com/api/fccusers/top/alltime')}>
+          All time points
+        </td>
+     </tr>
+     </thead>
   )
 }
 
@@ -15,43 +27,24 @@ function CampersData(props) {
   var {user, index} = props;
   return (
     <tr>
-     <td>{index + 1}</td>
-     <td>
+     <td className="numberCol">{index + 1}</td>
+     <td className="camperCol">
       <a href={`https://www.freecodecamp.com/${user.username}`} target="_blank">
-       <UserImage image={user.img} />
+       <UserImage image={user.img} user={user.username}/>
         {user.username}
       </a>
      </td>
-     <td>{user.recent}</td>
-     <td>{user.alltime}</td>
+     <td className="recentCol">{user.recent}</td>
+     <td className="alltimeCol">{user.alltime}</td>
     </tr>
   );
 }
 
-function TableHead(props) {
+function UserImage(props) {
+  var image= props.image;
+  var user = props.user;
   return (
-    <thead>
-       <tr>
-         <th>Leaderboard</th>
-       </tr>
-     </thead>
-  )
-}
-
-function RowOne(props) {
-  return (
-    <tr>
-      <td>#</td>
-      <td>Camper Name</td>
-      <td onClick={props.onClick.bind(null,
-         'https://fcctop100.herokuapp.com/api/fccusers/top/recent')}>
-         Points in last 30 days
-       </td>
-      <td onClick={props.onClick.bind(null,
-         'https://fcctop100.herokuapp.com/api/fccusers/top/alltime')}>
-         All time points
-       </td>
-    </tr>
+    <img className="userAvatar" src={image} alt={`Avatar for ${user}`}/>
   )
 }
 
@@ -88,13 +81,13 @@ class Table extends React.Component {
     return (
       <div>
         <table>
-          <TableHead />
+          <TableHead onClick={this.updateTable}/>
           <tbody>
-          <RowOne onClick={this.updateTable}/>
+
 
           {data && data.map((user, index) =>
             <CampersData key={user.username} user={user} index={index}/>)}
-            
+
           </tbody>
         </table>
 
