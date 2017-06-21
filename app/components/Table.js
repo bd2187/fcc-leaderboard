@@ -34,9 +34,12 @@ class Table extends React.Component {
       loading: true,
       data: null
     }
+    this.updateTable = this.updateTable.bind(this);
   }
-  componentDidMount() {
-    var endpoint = this.state.endpoint;
+  updateTable(endpoint) {
+    this.setState(function(){
+      return {endpoint: endpoint}
+    });
     api.fetchAPI(endpoint)
       .then( (data) => {
         this.setState(function(){
@@ -46,6 +49,9 @@ class Table extends React.Component {
           }
         })
       });
+  }
+  componentDidMount() {
+    this.updateTable(this.state.endpoint);
   }
   render() {
     var loading = this.state.loading;
@@ -62,8 +68,14 @@ class Table extends React.Component {
            <tr>
              <td>#</td>
              <td>Camper Name</td>
-             <td>Points in past 30 days</td>
-             <td>All time points</td>
+             <td onClick={this.updateTable.bind(null,
+                'https://fcctop100.herokuapp.com/api/fccusers/top/recent')}>
+                Points in last 30 days
+              </td>
+             <td onClick={this.updateTable.bind(null,
+                'https://fcctop100.herokuapp.com/api/fccusers/top/alltime')}>
+                All time points
+              </td>
            </tr>
            {data && data.map((user, index) =>
              <CampersData key={user.username} user={user} index={index}/>)}
