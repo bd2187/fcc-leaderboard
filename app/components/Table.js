@@ -17,8 +17,10 @@ function CampersData(props) {
     <tr>
      <td>{index + 1}</td>
      <td>
-     <UserImage image={user.img} />
-      {user.username}
+      <a href={`https://www.freecodecamp.com/${user.username}`} target="_blank">
+       <UserImage image={user.img} />
+        {user.username}
+      </a>
      </td>
      <td>{user.recent}</td>
      <td>{user.alltime}</td>
