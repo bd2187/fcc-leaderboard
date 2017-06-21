@@ -1,6 +1,7 @@
 "use strict";
 
 import React from 'react';
+import PropTypes from 'prop-types';
 
 function UserImage(props) {
   var image= props.image;
@@ -8,6 +9,10 @@ function UserImage(props) {
   return (
     <img className="userAvatar" src={image} alt={`Avatar for ${user}`}/>
   )
+}
+UserImage.propTypes = {
+  image: PropTypes.string.isRequired,
+  user: PropTypes.string.isRequired
 }
 
 function CampersData(props) {
@@ -25,6 +30,10 @@ function CampersData(props) {
      <td className="alltimeCol">{user.alltime}</td>
     </tr>
   );
+}
+CampersData.propTypes = {
+  user: PropTypes.object.isRequired,
+  index: PropTypes.number.isRequired
 }
 
 export default CampersData;

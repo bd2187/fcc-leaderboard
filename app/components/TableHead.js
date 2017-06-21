@@ -1,6 +1,7 @@
 "use strict";
 
 import React from 'react';
+import PropTypes from 'prop-types';
 
 function TableHead(props) {
   return (
@@ -19,6 +20,10 @@ function TableHead(props) {
      </tr>
      </thead>
   )
+}
+
+TableHead.propTypes = {
+  onClick: PropTypes.func.isRequired
 }
 
 export default TableHead;

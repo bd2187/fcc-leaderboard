@@ -41,8 +41,7 @@ class Table extends React.Component {
         <table>
           <TableHead onClick={this.updateTable}/>
           <tbody>
-
-
+          
           {data && data.map((user, index) =>
             <CampersData key={user.username} user={user} index={index}/>)}
 
