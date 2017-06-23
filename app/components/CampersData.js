@@ -19,7 +19,7 @@ function CampersData(props) {
   var {user, index} = props;
   return (
     <tr>
-     <td className="numberCol">{index + 1}</td>
+     <td className="alignCenter">{index + 1}</td>
      <td className="camperCol">
       <a href={`https://www.freecodecamp.com/${user.username}`} target="_blank">
         <div className="userLink">
@@ -28,8 +28,8 @@ function CampersData(props) {
         </div>
       </a>
      </td>
-     <td className="recentCol">{user.recent}</td>
-     <td className="alltimeCol">{user.alltime}</td>
+     <td className="alignCenter">{user.recent}</td>
+     <td className="alignCenter">{user.alltime}</td>
     </tr>
   );
 }

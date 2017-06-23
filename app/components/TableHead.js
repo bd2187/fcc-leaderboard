@@ -16,7 +16,7 @@ function highlightCategory(currentEndpoint, recentEndpoint) {
 }
 
 function TableHead(props) {
-  var recentEndpoint = 'https://fcctop100.herokuapp.com/api/fccusers/top/recent';
+  var recentEndpoint  = 'https://fcctop100.herokuapp.com/api/fccusers/top/recent';
   var allTimeEndpoint = 'https://fcctop100.herokuapp.com/api/fccusers/top/alltime';
   var category = highlightCategory(props.endpoint, recentEndpoint);
   return (
@@ -36,7 +36,7 @@ function TableHead(props) {
         </td>
      </tr>
      </thead>
-  )
+  );
 }
 
 TableHead.propTypes = {

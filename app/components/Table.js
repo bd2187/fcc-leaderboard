@@ -36,7 +36,7 @@ class Table extends React.Component {
   render() {
     var loading = this.state.loading;
     var data = this.state.data;
-    var endpoint = this.state.endpoint
+    var endpoint = this.state.endpoint;
     return (
       <div>
         <table>

@@ -11,6 +11,10 @@ a {
   text-decoration: none;
 }
 
+.alignCenter {
+  text-align: center;
+}
+
 #app {
   width: 100%;
   padding: 1em 0;
@@ -23,7 +27,6 @@ a {
 
 .container .banner {
   margin: 0;
-  text-align: center;
   padding: 2em;
   font-weight: 400;
 }
@@ -51,19 +54,24 @@ a {
   cursor: pointer;
 }
 
+.container table thead .currentCategory:after {
+  font-family: FontAwesome;
+  content: '\f063';
+  font-size: .8em;
+  margin-left: 3px;
+}
+
 .container table tbody tr {
   font-weight: 300;
   margin-bottom: 5em;
 }
 
 .container table tbody tr:nth-child(even) {
-  background-color: #EDEAE9;
+  background-color: #F0EDEC;
 }
 
-.container table tbody .numberCol,
-.container table tbody .recentCol,
-.container table tbody .alltimeCol {
-  text-align: center;
+.container table tbody tr:nth-child(odd) {
+  background-color: white;
 }
 
 .container table tbody .camperCol {
@@ -71,18 +79,19 @@ a {
 }
 
 .container table tbody .camperCol a {
-  color: black;
+  color: #000;
 }
 
-.currentCategory:after {
-  font-family: FontAwesome;
-  content: '\f063';
-  font-size: .8em;
-  margin-left: 3px;
+.container table tbody .camperCol a:visited {
+  color: #2C7A2C;
+}
+
+.container table tbody .camperCol a:hover {
+  text-decoration: underline;
 }
 
 .userAvatar {
-  width: 50px;
+  width: 3em;
   vertical-align: middle;
 }
 
@@ -96,6 +105,35 @@ a {
   height: 100%;
 }
 
-#loading {
-  text-align: center;
+.loader {
+  border: 8px solid #F0EDEC;
+  border-top: 8px solid #cec5c1;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  -webkit-animation: spin 1s linear infinite;
+  animation: spin 1s linear infinite;
+  margin: 5em auto;
+}
+
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
 }

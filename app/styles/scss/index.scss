@@ -1,3 +1,7 @@
+// $lightGrey: #EDEAE9;
+$lightGrey: #F0EDEC;
+$offWhite: lighten($lightGrey, 8%);
+
 * {
   box-sizing: border-box;
 }
@@ -10,6 +14,8 @@ a {
   text-decoration: none;
 }
 
+.alignCenter {text-align: center}
+
 #app {
   width: 100%;
   padding: 1em 0;
@@ -18,13 +24,12 @@ a {
 .container {
   font-family: 'Roboto', sans-serif;
   width: 100%;
+
   .banner {
     margin: 0;
-    // background: pink;
-    text-align: center;
     padding: 2em;
     font-weight: 400;
-  }
+  } // end .banner
 
   table {
     background: white;
@@ -35,7 +40,7 @@ a {
     font-size: .9em;
 
     border-spacing: 0 .2em;
-    // border-collapse: collapse;
+
     thead {
       text-align: center;
       font-weight: 500;
@@ -43,47 +48,42 @@ a {
         padding: .5em;
         &:hover {
           cursor: pointer;
+        } // end .category:hover
+      } // end .category
+      .currentCategory {
+        &:after {
+          font-family: FontAwesome;
+          content: '\f063';
+          font-size: .8em;
+          margin-left: 3px;
         }
-      }
-    } // end .thead
+      } // end .currentCategory
+    } // end thead
 
     tbody {
       tr {
         font-weight: 300;
         margin-bottom: 5em;
-        &:nth-child(even) {
-          background-color: #EDEAE9;
-        }
-      }
-      .numberCol,
-      .recentCol,
-      .alltimeCol {
-        text-align: center;
-      }
+        &:nth-child(even) { background-color: $lightGrey; }
+        &:nth-child(odd) { background-color: $offWhite; }
+      } // end tr
       .camperCol {
         font-weight: 400;
-        a {
-          color: black;
+        a {color: #000;
+          &:visited{color: #2C7A2C;}
+          &:hover{text-decoration: underline;}
         }
-      }
-    }
+      } // end .camperCol
+    } // end tbody
 
-  }
-}
-
-.currentCategory {
-  &:after {
-    font-family: FontAwesome;
-    content: '\f063';
-    font-size: .8em;
-    margin-left: 3px;
-  }
-}
+  } // end table
+} // end .container
 
 .userAvatar {
-  width: 50px;
+  width: 3em;
   vertical-align: middle;
 }
+
 .userAvatar,
 .username {
   margin: .25em;
@@ -94,6 +94,17 @@ a {
   height: 100%;
 }
 
-#loading {
-  text-align: center;
+.loader {
+    border: 8px solid $lightGrey;
+    border-top: 8px solid darken($lightGrey, 15%);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+    margin: 5em auto;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }

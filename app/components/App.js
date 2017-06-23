@@ -7,7 +7,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="container">
-        <h1 className="banner">FCC Leaderboard</h1>
+        <h1 className="banner alignCenter">FCC Leaderboard</h1>
         <Table />
       </div>
     )

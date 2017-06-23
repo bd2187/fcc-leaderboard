@@ -3,9 +3,13 @@
 import React from 'react';
 
 class Loading extends React.Component {
-  render() {
+  constructor(props){
+    super(props);
+    this.state = {text: 'Loading'};
+  }
+  render(){
     return (
-      <h3 id="loading">Loading</h3>
+      <div className="loader"></div>
     );
   }
 }
