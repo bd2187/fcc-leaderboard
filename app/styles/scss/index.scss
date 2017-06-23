@@ -3,7 +3,6 @@
 }
 
 body {
-  // background: green;
   width: 100%;
 }
 
@@ -69,6 +68,15 @@ a {
       }
     }
 
+  }
+}
+
+.currentCategory {
+  &:after {
+    font-family: FontAwesome;
+    content: '\f063';
+    font-size: .8em;
+    margin-left: 3px;
   }
 }
 

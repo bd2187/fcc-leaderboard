@@ -74,6 +74,13 @@ a {
   color: black;
 }
 
+.currentCategory:after {
+  font-family: FontAwesome;
+  content: '\f063';
+  font-size: .8em;
+  margin-left: 3px;
+}
+
 .userAvatar {
   width: 50px;
   vertical-align: middle;

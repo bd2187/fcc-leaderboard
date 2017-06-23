@@ -36,15 +36,14 @@ class Table extends React.Component {
   render() {
     var loading = this.state.loading;
     var data = this.state.data;
+    var endpoint = this.state.endpoint
     return (
       <div>
         <table>
-          <TableHead onClick={this.updateTable}/>
+          <TableHead onClick={this.updateTable} endpoint={endpoint}/>
           <tbody>
-          
           {data && data.map((user, index) =>
             <CampersData key={user.username} user={user} index={index}/>)}
-
           </tbody>
         </table>
 
