@@ -59,6 +59,7 @@ a {
   content: '\f063';
   font-size: .8em;
   margin-left: 3px;
+  color: #2C7A2C;
 }
 
 .container table tbody tr {
@@ -91,8 +92,9 @@ a {
 }
 
 .userAvatar {
-  width: 3em;
+  width: 3.5em;
   vertical-align: middle;
+  border-radius: 50%;
 }
 
 .userAvatar,
