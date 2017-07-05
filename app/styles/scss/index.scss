@@ -1,5 +1,6 @@
 // $lightGrey: #EDEAE9;
-$lightGrey: #F0EDEC;
+// $lightGrey: #F0EDEC;
+$lightGrey: #EDEDED;
 $offWhite: lighten($lightGrey, 8%);
 $green: #2C7A2C;
 * {
@@ -110,3 +111,19 @@ a {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
 }
+
+
+footer {
+  text-align: center;
+  margin: 1em auto;
+
+  #back-to-top {
+    display: inline-block;
+    padding: .5em;
+    color: $green;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+} // end footer

@@ -68,7 +68,7 @@ a {
 }
 
 .container table tbody tr:nth-child(even) {
-  background-color: #F0EDEC;
+  background-color: #EDEDED;
 }
 
 .container table tbody tr:nth-child(odd) {
@@ -108,8 +108,8 @@ a {
 }
 
 .loader {
-  border: 8px solid #F0EDEC;
-  border-top: 8px solid #cec5c1;
+  border: 8px solid #EDEDED;
+  border-top: 8px solid #c7c7c7;
   border-radius: 50%;
   width: 50px;
   height: 50px;
@@ -138,4 +138,19 @@ a {
     -webkit-transform: rotate(360deg);
     transform: rotate(360deg);
   }
+}
+
+footer {
+  text-align: center;
+  margin: 1em auto;
+}
+
+footer #back-to-top {
+  display: inline-block;
+  padding: .5em;
+  color: #2C7A2C;
+}
+
+footer #back-to-top:hover {
+  text-decoration: underline;
 }
